@@ -1,0 +1,7 @@
+mcp
+mss
+Pillow
+pycaw
+comtypes
+psutil
+opencv-python

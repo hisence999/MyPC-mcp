@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Sensitive configuration
+config.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Project specific
+screenshots/
+*.log
+debug_*.py
+create_test_files.py
+
+# OS
+.DS_Store
+Thumbs.db

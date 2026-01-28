@@ -1,0 +1,34 @@
+{
+    "safe_zones": [
+        "C:\\Users\\YOUR_USERNAME\\Documents",
+        "C:\\Users\\YOUR_USERNAME\\Downloads",
+        "C:\\Users\\YOUR_USERNAME\\Desktop",
+        "D:\\",
+        "E:\\"
+    ],
+    "vlm": {
+        "base_url": "https://open.bigmodel.cn/api/paas/v4",
+        "api_key": "YOUR_API_KEY_HERE",
+        "model": "glm-4.6v",
+        "prompt": "Please identify all text in this image and briefly describe the content."
+    },
+    "ssh": {
+        "hosts": {
+            "MyServer": {
+                "host": "192.168.1.100",
+                "port": 22,
+                "user": "your_username",
+                "password": "your_password",
+                "comment": "Or use key_file instead of password"
+            }
+        },
+        "allowed_commands": [
+            "docker", "docker-compose",
+            "git", "npm", "node", "python", "pip",
+            "ping", "curl", "wget", "ss", "ip", "nslookup", "dig",
+            "grep", "awk", "sed", "sort", "uniq", "wc", "tail", "head", "less",
+            "vim", "nano", "cat", "journalctl"
+        ],
+        "comment": "Safe remote development/ops commands. Dangerous system commands (rm, reboot, systemctl) removed. Duplicates of local tools (ls, ps) removed."
+    }
+}
