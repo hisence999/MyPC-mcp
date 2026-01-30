@@ -93,12 +93,23 @@ def register_system_tools(mcp: FastMCP):
     @mcp.tool(name="MyPC-sleep_display")
     def sleep_display() -> str:
         """
-        Turn off the display (put monitor to sleep).
+        Turn off the display (put monitor to sleep) - non-blocking async.
         """
         try:
             import ctypes
-            ctypes.windll.user32.SendMessageW(0xFFFF, 0x0112, 0xF170, 2)
-            return "Display turned off."
+            import threading
+
+            def _turn_off_display():
+                # Use PostMessage for async/non-blocking call
+                # HWND_BROADCAST = 0xFFFF, WM_SYSCOMMAND = 0x0112, SC_MONITORPOWER = 0xF170
+                # Power off = 2
+                ctypes.windll.user32.PostMessageW(0xFFFF, 0x0112, 0xF170, 2)
+
+            # Run in background thread to avoid blocking
+            thread = threading.Thread(target=_turn_off_display, daemon=True)
+            thread.start()
+
+            return "Display turn-off command sent (async)."
         except Exception as e:
             return f"Error turning off display: {str(e)}"
 
