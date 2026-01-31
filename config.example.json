@@ -1,29 +1,25 @@
 {
-    "_comment": "MYPC-MCP 配置文件 - 将此文件复制为 config.json 并根据需要修改",
-
     "server": {
-        "_comment": "服务器配置",
-
+        "#enabled": "是否启用 MCP 服务器",
         "enabled": true,
-        "_enabled_desc": "是否启用 MCP 服务器",
 
+        "#name": "服务器名称，用于标识此 MCP 服务",
         "name": "MyPC-MCP",
-        "_name_desc": "服务器名称，用于标识此 MCP 服务",
 
+        "#port": "服务器监听端口 (1-65535)",
         "port": 9999,
-        "_port_desc": "服务器监听端口 (1-65535)",
 
+        "#host": "监听地址，0.0.0.0=所有接口(可局域网/公网访问)，127.0.0.1=仅本机",
         "host": "0.0.0.0",
-        "_host_desc": "监听地址。0.0.0.0=所有接口(可局域网/公网访问), 127.0.0.1=仅本机",
 
+        "#domain": "访问域名或IP，localhost=本机，局域网IP=局域网访问，域名=公网访问(需路由器端口转发)",
         "domain": "localhost",
-        "_domain_desc": "访问域名或IP。localhost=本机, 局域网IP=局域网访问, 域名=公网访问",
 
+        "#screenshots_dir": "屏幕截图保存目录，相对路径或绝对路径",
         "screenshots_dir": "./screenshots",
-        "_screenshots_dir_desc": "屏幕截图保存目录，相对路径或绝对路径",
 
-        "local_host_header": "localhost:9999",
-        "_local_host_header_desc": "本地请求的 Host 头，用于内部访问"
+        "#local_host_header": "本地请求的 Host 头，用于内部访问",
+        "local_host_header": "localhost:9999"
     },
 
     "safe_zones": [
@@ -32,165 +28,144 @@
         "%USERPROFILE%\\Desktop",
         "%USERPROFILE%\\Pictures"
     ],
-    "_safe_zones_desc": "安全区列表，允许写入操作的目录。工作区(workspace)优先级高于安全区。支持环境变量如 %USERPROFILE%",
+    "#safe_zones": "安全区列表，允许写入操作的目录。工作区(workspace)优先级高于安全区，支持环境变量",
 
     "paths": {
-        "_comment": "路径配置",
-
         "workspace": "%USERPROFILE%\\Workspace",
-        "_workspace_desc": "默认工作区目录，文件操作的基础路径。优先级高于安全区，工作区内所有操作都允许",
+        "#workspace": "默认工作区目录，文件操作的基础路径，优先级高于安全区，支持环境变量",
 
         "everything": [
             "C:\\Program Files\\Everything\\es.exe",
             "C:\\Program Files (x86)\\Everything\\es.exe",
             "es.exe"
         ],
-        "_everything_desc": "Everything 搜索工具路径，按顺序尝试找到第一个存在的路径",
+        "#everything": "Everything 搜索工具路径，按顺序尝试找到第一个存在的路径",
 
         "git_bash": [
             "C:\\Program Files\\Git\\bin\\bash.exe",
             "C:\\Program Files (x86)\\Git\\bin\\bash.exe",
             "bash.exe"
         ],
-        "_git_bash_desc": "Git Bash 路径，用于执行 shell 命令",
+        "#git_bash": "Git Bash 路径，用于执行 shell 命令",
 
         "download_dirs": [
             "%USERPROFILE%\\Downloads",
             "D:\\DOWNLOAD"
         ],
-        "_download_dirs_desc": "下载目录列表，用于浏览器下载文件",
+        "#download_dirs": "下载目录列表，用于浏览器下载文件",
 
         "drives": ["C:", "D:", "E:", "F:"],
-        "_drives_desc": "可用驱动器列表，用于文件操作"
+        "#drives": "可用驱动器列表，用于文件操作"
     },
 
     "vlm": {
-        "_comment": "视觉大模型配置，用于截图识别",
-
         "enabled": false,
-        "_enabled_desc": "是否启用视觉大模型功能",
+        "#enabled": "是否启用视觉大模型功能",
 
         "base_url": "https://open.bigmodel.cn/api/paas/v4",
-        "_base_url_desc": "视觉大模型 API 地址",
+        "#base_url": "视觉大模型 API 地址",
 
         "api_key": "",
-        "_api_key_desc": "API 密钥 (必填)",
+        "#api_key": "API 密钥（必填）",
 
         "model": "glm-4v",
-        "_model_desc": "使用的模型名称",
+        "#model": "使用的模型名称",
 
         "prompt": "请详细描述图片并重点描述文字信息。",
-        "_prompt_desc": "截图识别的提示词"
+        "#prompt": "截图识别的提示词"
     },
 
     "screen": {
-        "_comment": "屏幕截图配置",
-
         "max_screenshots": 20,
-        "_max_screenshots_desc": "最多保留的截图数量，超出后自动删除旧截图",
+        "#max_screenshots": "最多保留的截图数量，超出后自动删除旧截图",
 
         "llm_max_dim": 800,
-        "_llm_max_dim_desc": "发送给 LLM 的图片最大尺寸（长或宽），单位：像素",
+        "#llm_max_dim": "发送给 LLM 的图片最大尺寸（长或宽），单位：像素",
 
         "llm_quality": 60,
-        "_llm_quality_desc": "发送给 LLM 的图片质量 (1-100)",
+        "#llm_quality": "发送给 LLM 的图片质量 (1-100)",
 
         "vlm_max_dim": 1000,
-        "_vlm_max_dim_desc": "发送给 VLM 的图片最大尺寸（长或宽），单位：像素",
+        "#vlm_max_dim": "发送给 VLM 的图片最大尺寸（长或宽），单位：像素",
 
         "vlm_quality": 60,
-        "_vlm_quality_desc": "发送给 VLM 的图片质量 (1-100)",
+        "#vlm_quality": "发送给 VLM 的图片质量 (1-100)",
 
         "vlm_timeout": 60,
-        "_vlm_timeout_desc": "VLM API 请求超时时间，单位：秒"
+        "#vlm_timeout": "VLM API 请求超时时间，单位：秒"
     },
 
     "system": {
-        "_comment": "系统监控配置",
-
         "cpu_interval": 0.1,
-        "_cpu_interval_desc": "CPU 使用率采样间隔时间，单位：秒"
+        "#cpu_interval": "CPU 使用率采样间隔时间，单位：秒"
     },
 
     "files": {
-        "_comment": "文件操作配置",
-
         "default_read_lines": 300,
-        "_default_read_lines_desc": "读取文本文件时的默认最大行数",
+        "#default_read_lines": "读取文本文件时的默认最大行数",
 
         "grep_max_results": 100,
-        "_grep_max_results_desc": "文本搜索返回的最大结果数"
+        "#grep_max_results": "文本搜索返回的最大结果数"
     },
 
     "window": {
-        "_comment": "窗口和通知配置",
-
         "notification_duration": 60,
-        "_notification_duration_desc": "通知默认显示时长，单位：秒",
+        "#notification_duration": "通知默认显示时长，单位：秒",
 
         "notification_app_name": "MyPC",
-        "_notification_app_name_desc": "通知中显示的应用名称",
+        "#notification_app_name": "通知中显示的应用名称",
 
         "process_list_limit": 20,
-        "_process_list_limit_desc": "进程列表返回的最大数量",
+        "#process_list_limit": "进程列表返回的最大数量",
 
         "window_list_limit": 50,
-        "_window_list_limit_desc": "窗口列表返回的最大数量",
+        "#window_list_limit": "窗口列表返回的最大数量",
 
         "delay_min_seconds": 1,
-        "_delay_min_seconds_desc": "自动点击/输入的最小延迟时间，单位：秒",
+        "#delay_min_seconds": "自动点击/输入的最小延迟时间，单位：秒",
 
         "delay_max_seconds": 120,
-        "_delay_max_seconds_desc": "自动点击/输入的最大延迟时间，单位：秒"
+        "#delay_max_seconds": "自动点击/输入的最大延迟时间，单位：秒"
     },
 
     "search": {
-        "_comment": "文件搜索配置",
-
         "default_limit": 20,
-        "_default_limit_desc": "Everything 搜索默认返回的最大结果数"
+        "#default_limit": "Everything 搜索默认返回的最大结果数"
     },
 
     "keyboard_mouse": {
-        "_comment": "键盘鼠标控制配置",
-
         "failsafe": true,
-        "_failsafe_desc": "是否启用防误触功能，将鼠标移到屏幕角落可终止操作",
+        "#failsafe": "是否启用防误触功能，将鼠标移到屏幕角落可终止操作",
 
         "pause": 0.1,
-        "_pause_desc": "键盘/鼠标操作后的默认暂停时间，单位：秒",
+        "#pause": "键盘/鼠标操作后的默认暂停时间，单位：秒",
 
         "type_interval": 0.02,
-        "_type_interval_desc": "打字时每个字符之间的间隔时间，单位：秒"
+        "#type_interval": "打字时每个字符之间的间隔时间，单位：秒"
     },
 
     "detector": {
-        "_comment": "文件检测配置",
-
         "search_depth": 3,
-        "_search_depth_desc": "文件搜索时的目录递归深度",
+        "#search_depth": "文件搜索时的目录递归深度",
 
         "common_dirs": [
             "Desktop", "Downloads", "Documents", "Pictures",
             "Videos", "Music", "Projects", "Source", "Repos",
             "GitHub", "Work", "Workspace"
         ],
-        "_common_dirs_desc": "常用目录名称列表，用于快速定位文件"
+        "#common_dirs": "常用目录名称列表，用于快速定位文件"
     },
 
     "ssh": {
-        "_comment": "SSH 远程命令配置",
-
+        "#hosts": "SSH 主机配置，key 为主机别名，value 为主机连接信息",
+        "#hosts_example": "MyServer: { host: \"192.168.1.100\", port: 22, user: \"username\", password: \"xxx\" }",
         "hosts": {
-            "_hosts_desc": "SSH 主机配置，key 为主机别名",
-            "_example": {
-                "MyServer": {
-                    "host": "192.168.1.100",
-                    "port": 22,
-                    "user": "your_username",
-                    "password": "your_password",
-                    "_example_comment": "或使用 key_file 替代 password"
-                }
+            "MyServer": {
+                "host": "192.168.1.100",
+                "port": 22,
+                "user": "your_username",
+                "password": "your_password",
+                "#password_or_key_file": "使用 password 或 key_file 二选一"
             }
         },
 
@@ -201,6 +176,6 @@
             "grep", "awk", "sed", "sort", "uniq", "wc", "tail", "head", "less",
             "vim", "nano", "cat", "journalctl"
         ],
-        "_allowed_commands_desc": "允许执行的命令列表（白名单模式），只有在此列表中的命令才能被执行"
+        "#allowed_commands": "允许执行的命令列表（白名单模式），只有在此列表中的命令才能被执行"
     }
 }
