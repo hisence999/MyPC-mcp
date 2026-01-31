@@ -1,0 +1,111 @@
+{
+    "_comment": "MYPC-MCP 示例配置文件 - 请将其复制为 config.json 并根据需要修改",
+
+    "server": {
+        "enabled": true,
+        "name": "MyPC-MCP",
+        "port": 9999,
+        "host": "0.0.0.0",
+        "domain": "localhost",
+        "screenshots_dir": "./screenshots",
+        "local_host_header": "localhost:9999"
+    },
+
+    "safe_zones": [
+        "%USERPROFILE%\\Documents",
+        "%USERPROFILE%\\Downloads",
+        "%USERPROFILE%\\Desktop",
+        "%USERPROFILE%\\Pictures"
+    ],
+
+    "paths": {
+        "workspace": "%USERPROFILE%\\Workspace",
+        "everything": [
+            "C:\\Program Files\\Everything\\es.exe",
+            "C:\\Program Files (x86)\\Everything\\es.exe",
+            "es.exe"
+        ],
+        "git_bash": [
+            "C:\\Program Files\\Git\\bin\\bash.exe",
+            "C:\\Program Files (x86)\\Git\\bin\\bash.exe",
+            "bash.exe"
+        ],
+        "download_dirs": [
+            "%USERPROFILE%\\Downloads",
+            "D:\\DOWNLOAD"
+        ],
+        "drives": ["C:", "D:", "E:", "F:"]
+    },
+
+    "vlm": {
+        "enabled": false,
+        "base_url": "https://open.bigmodel.cn/api/paas/v4",
+        "api_key": "",
+        "model": "glm-4v",
+        "prompt": "请详细描述图片并重点描述文字信息。"
+    },
+
+    "screen": {
+        "max_screenshots": 20,
+        "llm_max_dim": 800,
+        "llm_quality": 60,
+        "vlm_max_dim": 1000,
+        "vlm_quality": 60,
+        "vlm_timeout": 60
+    },
+
+    "system": {
+        "cpu_interval": 0.1
+    },
+
+    "files": {
+        "default_read_lines": 300,
+        "grep_max_results": 100
+    },
+
+    "window": {
+        "notification_duration": 60,
+        "notification_app_name": "MyPC",
+        "process_list_limit": 20,
+        "window_list_limit": 50,
+        "delay_min_seconds": 1,
+        "delay_max_seconds": 120
+    },
+
+    "search": {
+        "default_limit": 20
+    },
+
+    "keyboard_mouse": {
+        "failsafe": true,
+        "pause": 0.1,
+        "type_interval": 0.02
+    },
+
+    "detector": {
+        "search_depth": 3,
+        "common_dirs": [
+            "Desktop", "Downloads", "Documents", "Pictures",
+            "Videos", "Music", "Projects", "Source", "Repos",
+            "GitHub", "Work", "Workspace"
+        ]
+    },
+
+    "ssh": {
+        "hosts": {
+            "MyServer": {
+                "host": "192.168.1.100",
+                "port": 22,
+                "user": "your_username",
+                "password": "your_password"
+            }
+        },
+        "allowed_commands": [
+            "docker", "docker-compose",
+            "git", "npm", "node", "python", "pip",
+            "ping", "curl", "wget", "ss", "ip", "nslookup", "dig",
+            "grep", "awk", "sed", "sort", "uniq", "wc", "tail", "head", "less",
+            "vim", "nano", "cat", "journalctl"
+        ]
+    }
+}
